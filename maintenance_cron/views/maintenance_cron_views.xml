@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
-    <record id="maintenance_team_view_form" model="ir.ui.view">
-        <field name="name">Maintenance Cron</field>
+<!-- Copyright 2019 ForgeFlow S.L.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0) -->
+<odoo>
+    <record id="maintenance_cron_view_form" model="ir.ui.view">
+        <field name="name">maintenance.request</field>
         <field name="model">maintenance.request</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form" />
         <field name="arch" type="xml">
             <field name="email_cc" position="before">
-                <field name="crear_programada" />
-                <field name="periodicidad" />
+                <field name="crear_programada"/>
+                <field name="periodicidad" style="width:10%%" attrs="{'invisible': [('crear_programada','=',False)]}"/>
+                <field name="secuencia" invisible="True"/>
+                <field name="plan_id" invisible="True"/>
+                
             </field>
-           
         </field>
     </record>
-    <!-- There is no search view to inherit, so creating it-->
-<!--     <record id="maintenance_team_view_search" model="ir.ui.view">
-        <field name="name">maintenance.team.search</field>
-        <field name="model">maintenance.team</field>
+
+
+    <record id="maintenance_stage_view_form" model="ir.ui.view">
+        <field name="name">maintenance.stage</field>
+        <field name="model">maintenance.stage</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_stage_view_tree" />
         <field name="arch" type="xml">
-            <search>
-                <field name="name" />
-                <filter
-                    string="Archived"
-                    name="inactive"
-                    domain="[('active','=',False)]"
-                />
-            </search>
+            <field name="fold" position="before">
+                <field name="new_stage" />
+                
+            </field>
         </field>
-    </record> -->
+    </record>
+
+
+
+
 </odoo>

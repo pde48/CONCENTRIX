@@ -12,9 +12,7 @@
     "depends": ["maintenance"],
     "data": [
         "views/maintenance_cron_views.xml",
-        #"views/maintenance_request_views.xml",
-        #"views/maintenance_equipment_views.xml",
-        #"views/report_maintenance_request.xml",
+       
     ],
     "installable": True,
 }
